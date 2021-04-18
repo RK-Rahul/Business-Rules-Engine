@@ -12,7 +12,15 @@
         }
         public bool ExecuteOrder(Order order)
         {
-            throw new InvalidOrderException();
+            if (order.IsPhysicalPayment())
+            {
+                this.iInvoiceSlip.GenerateSlip(order);
+                return true;
+            }
+            else
+            {
+                throw new InvalidOrderException();
+            }
         }
     }
 }

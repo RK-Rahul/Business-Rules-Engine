@@ -15,7 +15,16 @@
         }
         public bool ExecuteOrder(Order order)
         {
-            throw new InvalidOrderException();
+            if (order.IsBookPayment())
+            {
+                this.iInvoiceSlip.GenerateDuplicateSlip(order);
+                this.agentCommision.GenerateCommision(order);
+                return true;
+            }
+            else
+            {
+                throw new InvalidOrderException();
+            }
         }
     }
 }

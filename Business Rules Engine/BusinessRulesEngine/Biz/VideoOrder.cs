@@ -12,7 +12,17 @@
         }
         public bool ExecuteOrder(Order order)
         {
-            throw new InvalidOrderException();
+            if (order.IsVideoPayment())
+            {
+                //Fetch JSON file and check if AID applicable then execute.
+                this.iInvoiceSlip.GenerateAIDSlip(order);
+                return true;
+            }
+            else
+            {
+                //Can be replaced by custom exception
+                throw new InvalidOrderException();
+            }
         }
     }
 }
