@@ -7,7 +7,7 @@ namespace BusinessRulesEngine
     {
         public static Order GetMemberShipOrder()
         {
-            return new Order() { OrderType = OrderType.MemberShip, customerEmail = "rahul.esf@gmail.com" };
+            return new Order() { OrderType = OrderType.MemberShip, customerEmail = "vandana.coc@gmail.com" };
         }
     }
 }
